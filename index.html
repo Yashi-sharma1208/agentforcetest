@@ -1,76 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agentforce Chat Test</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #e3f2fd, #bbdefb);
-            color: #333;
-            text-align: center;
-            padding: 50px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join OrgFarm | Careers</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
 
-        header {
-            margin-bottom: 40px;
-        }
+    header {
+      background: #1565c0;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
 
-        .content {
-            max-width: 600px;
-            margin: 0 auto;
-            background: #fff;
-            border-radius: 16px;
-            padding: 30px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
 
-        footer {
-            margin-top: 40px;
-            color: #666;
-            font-size: 14px;
-        }
-    </style>
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      color: #0d47a1;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .content h3 {
+      color: #0d47a1;
+      margin-bottom: 15px;
+    }
+
+    .job-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .job-list li {
+      background: #e3f2fd;
+      margin: 15px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .job-list h4 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #1565c0;
+    }
+
+    .job-list p {
+      margin: 5px 0 0;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .apply-note {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 1.05rem;
+      color: #333;
+    }
+
+    footer {
+      background: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      color: #555;
+      margin-top: 40px;
+    }
+
+    .chat-hint {
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 20px;
+      color: #444;
+    }
+  </style>
 </head>
+
 <body>
-    <header>
-        <h1>Welcome to OrgFarm Support</h1>
-        <p>Need help? Chat with our Agentforce assistant below 👇</p>
-    </header>
+  <header>
+    <h1>Join the OrgFarm Team</h1>
+    <p>Grow with us — we’re cultivating innovation in agriculture 🌱</p>
+  </header>
 
-    <div class="content">
-        <p>This is a test page created to embed the Agentforce Service Agent.</p>
-        <p>Once the chat loads, you can interact with the virtual assistant directly here.</p>
-    </div>
+  <section class="hero">
+    <h2>We're Hiring!</h2>
+    <p>At OrgFarm, we believe in sustainable farming powered by smart technology.
+      Explore our current openings and chat with our recruitment assistant below
+      to learn more.</p>
+  </section>
 
-    <footer>
-        &copy; 2025 OrgFarm. All rights reserved.
-    </footer>
+  <div class="content">
+    <h3>Open Positions</h3>
+    <ul class="job-list">
+      <li>
+        <h4>Software Engineer (Salesforce Developer)</h4>
+        <p>Location: Remote / Bengaluru</p>
+        <p>Work on innovative Salesforce solutions that empower farmers and distributors.</p>
+      </li>
+      <li>
+        <h4>Marketing Executive</h4>
+        <p>Location: Pune</p>
+        <p>Help us connect with sustainable brands and promote organic practices.</p>
+      </li>
+      <li>
+        <h4>Field Operations Manager</h4>
+        <p>Location: Hyderabad</p>
+        <p>Manage on-ground farming partnerships and ensure high-quality organic produce.</p>
+      </li>
+    </ul>
 
-    <!-- Agentforce Embedded Messaging Script -->
-    <script type='text/javascript'>
-        function initEmbeddedMessaging() {
-            try {
-                embeddedservice_bootstrap.settings.language = 'en_US'; // Set language
+    <p class="apply-note">
+      Interested? Chat with our HR Assistant below 👇 to apply or learn more!
+    </p>
+  </div>
 
-                embeddedservice_bootstrap.init(
-                    '00DdL00000fWhmz',
-                    'Messaging_Setting',
-                    'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510',
-                    {
-                        scrt2URL: 'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.salesforce-scrt.com'
-                    }
-                );
-            } catch (err) {
-                console.error('Error loading Embedded Messaging: ', err);
-            }
-        };
-    </script>
+  <div class="chat-hint">
+    💬 The OrgFarm Recruitment Assistant will appear here once loaded.
+  </div>
 
-    <script type='text/javascript'
-        src='https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510/assets/js/bootstrap.min.js'
-        onload='initEmbeddedMessaging()'>
-    </script>
+  <footer>
+    &copy; 2025 OrgFarm Pvt. Ltd. All rights reserved.
+  </footer>
+
+  <!-- Agentforce Embedded Messaging Script -->
+  <script type='text/javascript'>
+    function initEmbeddedMessaging() {
+      try {
+        embeddedservice_bootstrap.settings.language = 'en_US'; // Set language
+        embeddedservice_bootstrap.init(
+          '00DdL00000fWhmz',
+          'Messaging_Setting',
+          'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510',
+          {
+            scrt2URL: 'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.salesforce-scrt.com'
+          }
+        );
+      } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+      }
+    };
+  </script>
+
+  <script type='text/javascript'
+    src='https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510/assets/js/bootstrap.min.js'
+    onload='initEmbeddedMessaging()'>
+  </script>
 </body>
 </html>
