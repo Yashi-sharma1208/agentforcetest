@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentforce Chat Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #e3f2fd, #bbdefb);
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        header {
+            margin-bottom: 40px;
+        }
+
+        .content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to OrgFarm Support</h1>
+        <p>Need help? Chat with our Agentforce assistant below 👇</p>
+    </header>
+
+    <div class="content">
+        <p>This is a test page created to embed the Agentforce Service Agent.</p>
+        <p>Once the chat loads, you can interact with the virtual assistant directly here.</p>
+    </div>
+
+    <footer>
+        &copy; 2025 OrgFarm. All rights reserved.
+    </footer>
+
+    <!-- Agentforce Embedded Messaging Script -->
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; // Set language
+
+                embeddedservice_bootstrap.init(
+                    '00DdL00000fWhmz',
+                    'Messaging_Setting',
+                    'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510',
+                    {
+                        scrt2URL: 'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
+        };
+    </script>
+
+    <script type='text/javascript'
+        src='https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510/assets/js/bootstrap.min.js'
+        onload='initEmbeddedMessaging()'>
+    </script>
+</body>
+</html>
