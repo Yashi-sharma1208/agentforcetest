@@ -1,148 +1,184 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Agentforce Assistant</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join OrgFarm | Careers</title>
   <style>
     body {
-      font-family: "Segoe UI", Arial, sans-serif;
-      background: linear-gradient(135deg, #e3f2fd, #f8faff);
-      height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      color: #333;
       margin: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      padding: 0;
     }
 
-    /* Floating chat bubble */
-    #chatButton {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #007bff, #00a1e0);
+    header {
+      background: #1565c0;
       color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      cursor: pointer;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-      transition: transform 0.25s ease;
-      z-index: 999;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
-    #chatButton:hover {
-      transform: scale(1.1);
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
     }
 
-    /* Chat window container */
-    #chatContainer {
-      position: fixed;
-      bottom: 100px;
-      right: 40px;
-      width: 380px;
-      height: 520px;
-      background: #ffffff;
+    header p {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    .hero h2 {
+      font-size: 2rem;
+      color: #0d47a1;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
       border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-      overflow: hidden;
-      display: none;
-      flex-direction: column;
-      animation: fadeInUp 0.4s ease forwards;
-      z-index: 998;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
-    @keyframes fadeInUp {
-      from {
-        transform: translateY(30px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
+    .content h3 {
+      color: #0d47a1;
+      margin-bottom: 15px;
     }
 
-    #chatHeader {
-      background: linear-gradient(90deg, #007bff, #00a1e0);
-      color: white;
+    .job-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .job-list li {
+      background: #e3f2fd;
+      margin: 15px 0;
+      padding: 15px 20px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .job-list h4 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #1565c0;
+    }
+
+    .job-list p {
+      margin: 5px 0 0;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .apply-note {
       text-align: center;
-      padding: 12px;
-      font-size: 17px;
-      font-weight: 600;
-      letter-spacing: 0.4px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      margin-top: 30px;
+      font-size: 1.05rem;
+      color: #333;
     }
 
-    .chat-footer {
+    footer {
+      background: #f1f1f1;
+      padding: 20px;
       text-align: center;
-      padding: 10px;
-      font-size: 13px;
-      color: #777;
-      background: #f9fafc;
+      font-size: 14px;
+      color: #555;
+      margin-top: 40px;
     }
 
-    .chat-footer a {
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    .chat-footer a:hover {
-      text-decoration: underline;
+    .chat-hint {
+      text-align: center;
+      font-size: 1rem;
+      margin-top: 20px;
+      color: #444;
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <h1>Join the OrgFarm Team</h1>
+    <p>Grow with us — we’re cultivating innovation in agriculture 🌱</p>
+  </header>
 
-  <div id="chatButton" title="Chat with Agentforce">💬</div>
+  <section class="hero">
+    <h2>We're Hiring!</h2>
+    <p>At OrgFarm, we believe in sustainable farming powered by smart technology.
+      Explore our current openings and chat with our recruitment assistant below
+      to learn more.</p>
+  </section>
 
-  <div id="chatContainer">
-    <div id="chatHeader">Agentforce Assistant</div>
-    <div id="embeddedMessagingContainer"></div>
-    <div class="chat-footer">
-      Powered by <a href="https://www.salesforce.com" target="_blank">Salesforce</a>
-    </div>
+  <div class="content">
+    <h3>Open Positions</h3>
+    <ul class="job-list">
+      <li>
+        <h4>Software Engineer (Salesforce Developer)</h4>
+        <p>Location: Remote / Bengaluru</p>
+        <p>Work on innovative Salesforce solutions that empower farmers and distributors.</p>
+      </li>
+      <li>
+        <h4>Marketing Executive</h4>
+        <p>Location: Pune</p>
+        <p>Help us connect with sustainable brands and promote organic practices.</p>
+      </li>
+      <li>
+        <h4>Field Operations Manager</h4>
+        <p>Location: Hyderabad</p>
+        <p>Manage on-ground farming partnerships and ensure high-quality organic produce.</p>
+      </li>
+    </ul>
+
+    <p class="apply-note">
+      Interested? Chat with our HR Assistant below 👇 to apply or learn more!
+    </p>
   </div>
 
-  <script>
-    const chatBtn = document.getElementById('chatButton');
-    const chatContainer = document.getElementById('chatContainer');
+  <div class="chat-hint">
+    💬 The OrgFarm Recruitment Assistant will appear here once loaded.
+  </div>
 
-    chatBtn.addEventListener('click', () => {
-      chatContainer.style.display =
-        chatContainer.style.display === 'flex' ? 'none' : 'flex';
-    });
-  </script>
+  <footer>
+    &copy; 2025 OrgFarm Pvt. Ltd. All rights reserved.
+  </footer>
 
-  <!-- Salesforce Embedded Messaging Script -->
   <script type='text/javascript'>
-    function initEmbeddedMessaging() {
-      try {
-        embeddedservice_bootstrap.settings.language = 'en_US';
-        embeddedservice_bootstrap.init(
-          '00DdL00000fWhmz',
-          'Messaging_Setting',
-          'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510',
-          {
-            scrt2URL: 'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.salesforce-scrt.com',
-            embeddedServiceConfig: {
-              container: '#embeddedMessagingContainer'
-            }
-          }
-        );
-      } catch (err) {
-        console.error('Error loading Embedded Messaging: ', err);
-      }
-    };
-  </script>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-  <script type='text/javascript'
-    src='https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510/assets/js/bootstrap.min.js'
-    onload='initEmbeddedMessaging()'></script>
+			embeddedservice_bootstrap.init(
+				'00DUE0000050HmZ',
+				'HS_Live_Chat',
+				'https://hsiuk--fullcopy.sandbox.my.site.com/ESWHSLiveChat1762863013240',
+				{
+					scrt2URL: 'https://hsiuk--fullcopy.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://hsiuk--fullcopy.sandbox.my.site.com/ESWHSLiveChat1762863013240/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
