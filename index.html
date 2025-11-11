@@ -102,10 +102,10 @@
 
   // 🧠 Build the chat widget URL
   const chatUrl = `${myDomain}/embeddedservice/messaging.js` +
-                  `?deploymentId=${deploymentId}` +
-                  `&channelId=${chatChannelId}` +
-                  `&orgId=${orgId}` +
-                  `&userName=${encodeURIComponent(sessionUserName)}`;
+                `?deploymentId=${deploymentId}` +
+                `&channelId=${chatChannelId}` +
+                `&orgId=${orgId}` +
+                `&userName=${encodeURIComponent(sessionUserName)}`;
 
   // Load chat
   document.getElementById("chatFrame").src = chatUrl;
