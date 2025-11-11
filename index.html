@@ -161,24 +161,41 @@
     &copy; 2025 OrgFarm Pvt. Ltd. All rights reserved.
   </footer>
 
-  <script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+<script type='text/javascript'>
+  function initEmbeddedMessaging() {
+    try {
+      embeddedservice_bootstrap.settings.language = 'en_US'; // Set language if needed
 
-			embeddedservice_bootstrap.init(
-				'00DUE0000050HmZ',
-				'HS_Live_Chat',
-				'https://hsiuk--fullcopy.sandbox.my.site.com/ESWHSLiveChat1762863013240',
-				{
-					scrt2URL: 'https://hsiuk--fullcopy.sandbox.my.salesforce-scrt.com'
-				}
-			);
-		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
-		}
-	};
+      embeddedservice_bootstrap.init(
+        '00DUE0000050HmZ',
+        'HS_Live_Chat',
+        'https://hsiuk--fullcopy.sandbox.my.site.com/ESWHSLiveChat1762863013240',
+        {
+          scrt2URL: 'https://hsiuk--fullcopy.sandbox.my.salesforce-scrt.com'
+        }
+      );
+    } catch (err) {
+      console.error('Error loading Embedded Messaging: ', err);
+    }
+  }
+
+  // Wait for the embedded messaging framework to load
+  window.addEventListener("onEmbeddedMessagingReady", e => {
+    console.log("Embedded Messaging Ready");
+
+    // ✅ Pass your hidden prechat field here
+    embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
+      "Brand": "OrgFarm"  // <-- your brand name value here
+    });
+
+    console.log("Hidden Prechat Field 'Brand' set to OrgFarm");
+  });
 </script>
-<script type='text/javascript' src='https://hsiuk--fullcopy.sandbox.my.site.com/ESWHSLiveChat1762863013240/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+<!-- Keep this line as is -->
+<script type='text/javascript' 
+        src='https://hsiuk--fullcopy.sandbox.my.site.com/ESWHSLiveChat1762863013240/assets/js/bootstrap.min.js' 
+        onload='initEmbeddedMessaging()'>
+</script>
 </body>
 </html>
