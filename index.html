@@ -1,188 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join OrgFarm | Careers</title>
+  <meta charset="UTF-8">
+  <title>Chat with Agentforce Agent</title>
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: #1565c0;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      margin-top: 10px;
-      font-size: 1.1rem;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 60px 20px 30px;
-    }
-
-    .hero h2 {
-      font-size: 2rem;
-      color: #0d47a1;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: #444;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .content {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #fff;
-      border-radius: 16px;
-      padding: 40px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-
-    .content h3 {
-      color: #0d47a1;
-      margin-bottom: 15px;
-    }
-
-    .job-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .job-list li {
-      background: #e3f2fd;
-      margin: 15px 0;
-      padding: 15px 20px;
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    #chatContainer {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
       border-radius: 10px;
-      text-align: left;
+      overflow: hidden;
     }
-
-    .job-list h4 {
-      margin: 0;
-      font-size: 1.2rem;
-      color: #1565c0;
-    }
-
-    .job-list p {
-      margin: 5px 0 0;
-      color: #555;
-      font-size: 0.95rem;
-    }
-
-    .apply-note {
-      text-align: center;
-      margin-top: 30px;
-      font-size: 1.05rem;
-      color: #333;
-    }
-
-    footer {
-      background: #f1f1f1;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
-      margin-top: 40px;
-    }
-
-    .chat-hint {
-      text-align: center;
-      font-size: 1rem;
-      margin-top: 20px;
-      color: #444;
-    }
+    #chatHeader { background: #00a1e0; color: white; padding: 10px; }
+    #chatFrame { width: 100%; height: calc(100% - 50px); border: none; }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Join the OrgFarm Team</h1>
-    <p>Grow with us — we’re cultivating innovation in agriculture 🌱</p>
-  </header>
 
-  <section class="hero">
-    <h2>We're Hiring!</h2>
-    <p>At OrgFarm, we believe in sustainable farming powered by smart technology.
-      Explore our current openings and chat with our recruitment assistant below
-      to learn more.</p>
-  </section>
+<div id="chatContainer">
+  <div id="chatHeader">Chat with Agent</div>
+  <iframe id="chatFrame" src="" title="Agent chat"></iframe>
+</div>
 
-  <div class="content">
-    <h3>Open Positions</h3>
-    <ul class="job-list">
-      <li>
-        <h4>Software Engineer (Salesforce Developer)</h4>
-        <p>Location: Remote / Bengaluru</p>
-        <p>Work on innovative Salesforce solutions that empower farmers and distributors.</p>
-      </li>
-      <li>
-        <h4>Marketing Executive</h4>
-        <p>Location: Pune</p>
-        <p>Help us connect with sustainable brands and promote organic practices.</p>
-      </li>
-      <li>
-        <h4>Field Operations Manager</h4>
-        <p>Location: Hyderabad</p>
-        <p>Manage on-ground farming partnerships and ensure high-quality organic produce.</p>
-      </li>
-    </ul>
+<script>
+  // TODO: update these variables with your org details
+  const myDomain        = "orgfarm-fc63a0ccc4-dev-ed.develop.my.salesforce.com";        // your Salesforce My Domain
+  const deploymentId    = "04IdL000000tQhpUAE";                           // Embedded Service Deployment Id
+  const chatChannelId   = "0MjdL000000rohpSAA";                              // Messaging for Web channel Id
+  const orgId           = "00DdL00000fWhmz";                                  // Salesforce Org Id (18-char)
+  const sessionUserName = "Yashi Sharma";                                // e.g., define a user placeholder
+  
+  // Build the embedded service URL (per MIAW API docs)  
+  const chatUrl = `${myDomain}/embeddedservice/messaging.js` +
+                  `?deploymentId=${deploymentId}` +
+                  `&channelId=${chatChannelId}` +
+                  `&orgId=${orgId}` +
+                  `&userName=${encodeURIComponent(sessionUserName)}`;
+  
+  document.getElementById('chatFrame').src = chatUrl;
+</script>
 
-    <p class="apply-note">
-      Interested? Chat with our HR Assistant below 👇 to apply or learn more!
-    </p>
-  </div>
-
-  <div class="chat-hint">
-    💬 The OrgFarm Recruitment Assistant will appear here once loaded.
-  </div>
-
-  <footer>
-    &copy; 2025 OrgFarm Pvt. Ltd. All rights reserved.
-  </footer>
-
-  <!-- Agentforce Embedded Messaging Script -->
-  <script type='text/javascript'>
-    function initEmbeddedMessaging() {
-      try {
-        embeddedservice_bootstrap.settings.language = 'en_US'; // Set language
-        embeddedservice_bootstrap.init(
-          '00DdL00000fWhmz',
-          'Messaging_Setting',
-          'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510',
-          {
-            scrt2URL: 'https://orgfarm-fc63a0ccc4-dev-ed.develop.my.salesforce-scrt.com'
-          }
-        );
-      } catch (err) {
-        console.error('Error loading Embedded Messaging: ', err);
-      }
-    };
-  </script>
-
-  <script type='text/javascript'
-    src='https://orgfarm-fc63a0ccc4-dev-ed.develop.my.site.com/ESWMessagingSetting1762763951510/assets/js/bootstrap.min.js'
-    onload='initEmbeddedMessaging()'>
-  </script>
 </body>
 </html>
