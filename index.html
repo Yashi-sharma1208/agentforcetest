@@ -2,46 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Chat with Agentforce Agent</title>
+  <title>Agentforce Chat</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    #chatContainer {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 350px;
-      height: 500px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      border-radius: 10px;
-      overflow: hidden;
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #f0f7ff, #e3f2fd);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    #chatHeader { background: #00a1e0; color: white; padding: 10px; }
-    #chatFrame { width: 100%; height: calc(100% - 50px); border: none; }
+
+    .chat-wrapper {
+      position: relative;
+    }
+
+    #chatContainer {
+      width: 380px;
+      height: 520px;
+      background-color: #fff;
+      border-radius: 16px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: all 0.3s ease-in-out;
+      opacity: 0;
+      animation: fadeIn 0.8s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        transform: scale(0.9);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    #chatHeader {
+      background: linear-gradient(90deg, #007bff, #00a1e0);
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    #chatFrame {
+      width: 100%;
+      height: calc(100% - 50px);
+      border: none;
+    }
+
+    .footer-note {
+      position: absolute;
+      bottom: -40px;
+      width: 100%;
+      text-align: center;
+      font-size: 13px;
+      color: #555;
+      opacity: 0.7;
+    }
+
+    .footer-note a {
+      color: #007bff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
 
-<div id="chatContainer">
-  <div id="chatHeader">Chat with Agent</div>
-  <iframe id="chatFrame" src="" title="Agent chat"></iframe>
+<div class="chat-wrapper">
+  <div id="chatContainer">
+    <div id="chatHeader">💬 Chat with Agentforce</div>
+    <iframe id="chatFrame" src="" title="Agent Chat"></iframe>
+  </div>
+  <div class="footer-note">
+    Powered by <a href="https://www.salesforce.com" target="_blank">Salesforce Agentforce</a>
+  </div>
 </div>
 
 <script>
-  // TODO: update these variables with your org details
-  const myDomain        = "orgfarm-fc63a0ccc4-dev-ed.develop.my.salesforce.com";        // your Salesforce My Domain
-  const deploymentId    = "04IdL000000tQhpUAE";                           // Embedded Service Deployment Id
-  const chatChannelId   = "0MjdL000000rohpSAA";                              // Messaging for Web channel Id
-  const orgId           = "00DdL00000fWhmz";                                  // Salesforce Org Id (18-char)
-  const sessionUserName = "Yashi Sharma";                                // e.g., define a user placeholder
-  
-  // Build the embedded service URL (per MIAW API docs)  
+  // 🔧 Update these with your Salesforce org details
+  const myDomain        = "https://orgfarm-fc63a0ccc4-dev-ed.develop.my.salesforce.com";
+  const deploymentId    = "04IdL000000tQhpUAE"; // Embedded Service Deployment Id
+  const chatChannelId   = "0MjdL000000rohpSAA"; // Messaging for Web channel Id
+  const orgId           = "00DdL00000fWhmz";    // Salesforce Org Id (18-char)
+  const sessionUserName = "Yashi Sharma";       // Optional user identifier
+
+  // 🧠 Build the chat widget URL
   const chatUrl = `${myDomain}/embeddedservice/messaging.js` +
                   `?deploymentId=${deploymentId}` +
                   `&channelId=${chatChannelId}` +
                   `&orgId=${orgId}` +
                   `&userName=${encodeURIComponent(sessionUserName)}`;
-  
-  document.getElementById('chatFrame').src = chatUrl;
+
+  // Load chat
+  document.getElementById("chatFrame").src = chatUrl;
 </script>
 
 </body>
